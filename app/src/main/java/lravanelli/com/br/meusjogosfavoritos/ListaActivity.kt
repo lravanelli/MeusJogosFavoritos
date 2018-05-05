@@ -17,14 +17,14 @@ class ListaActivity : AppCompatActivity() {
 
         rvJogos.adapter = JogoAdapter(this, getJogos(), {
 
-
-
             val intentDetalhe = Intent(this, DetalheActivity::class.java)
 
             intentDetalhe.putExtra("jogo", it)
 
             startActivity(intentDetalhe)
 
+        }, {
+            Toast.makeText(this, "Delete ${it.titulo}", Toast.LENGTH_LONG).show()
         })
         rvJogos.layoutManager = LinearLayoutManager(this)
 
@@ -36,7 +36,28 @@ class ListaActivity : AppCompatActivity() {
                         getString(R.string.descricao_god_of_war),
                         2018,
                         R.drawable.godofwar,
+                        R.drawable.godofwarbanner),
+                Jogo(getString(R.string.titulo_gof_war),
+                        getString(R.string.descricao_god_of_war),
+                        2017,
+                        R.drawable.godofwar,
+                        R.drawable.godofwarbanner),
+                Jogo(getString(R.string.titulo_gof_war),
+                        getString(R.string.descricao_god_of_war),
+                        2016,
+                        R.drawable.godofwar,
+                        R.drawable.godofwarbanner),
+                Jogo(getString(R.string.titulo_gof_war),
+                        getString(R.string.descricao_god_of_war),
+                        2015,
+                        R.drawable.godofwar,
+                        R.drawable.godofwarbanner),
+                Jogo(getString(R.string.titulo_gof_war),
+                        getString(R.string.descricao_god_of_war),
+                        2014,
+                        R.drawable.godofwar,
                         R.drawable.godofwarbanner)
+
         )
     }
 }

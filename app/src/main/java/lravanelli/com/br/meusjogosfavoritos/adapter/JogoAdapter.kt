@@ -13,7 +13,8 @@ import lravanelli.com.br.meusjogosfavoritos.model.Jogo
 class JogoAdapter(
         val context: Context,
         val jogos: List<Jogo>,
-        val listener: (Jogo) -> Unit) : RecyclerView.Adapter<JogoAdapter.JogoViewHolder>() {
+        val listener: (Jogo) -> Unit,
+        val listenerDelete: (Jogo) -> Unit) : RecyclerView.Adapter<JogoAdapter.JogoViewHolder>() {
 
     override fun getItemCount(): Int {
 
@@ -31,18 +32,22 @@ class JogoAdapter(
         val jogo = jogos[position]
 
         holder?.let {
-            holder.bindView(jogo, listener)
+            holder.bindView(jogo, listener, listenerDelete)
         }
     }
 
     class  JogoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(jogo: Jogo, listener: (Jogo) -> Unit) = with(itemView) {
+        fun bindView(jogo: Jogo, listener: (Jogo) -> Unit, listenerDelete: (Jogo) -> Unit) = with(itemView) {
 
             tvTitulo.text = jogo.titulo
             tvLancamento.setText(context.getString(R.string.lancamento, jogo.anoLancamento))
             tvDescricao.text = jogo.descricao
             ivFoto.setImageDrawable(ContextCompat.getDrawable(context, jogo.fotoId))
+
+            ivDelete.setOnClickListener{
+                listenerDelete(jogo)
+            }
 
             setOnClickListener { listener(jogo) }
         }
