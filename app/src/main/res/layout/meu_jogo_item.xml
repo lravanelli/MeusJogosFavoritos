@@ -14,7 +14,7 @@
         tools:src="@drawable/godofwar"
         android:layout_width="96dp"
         android:layout_height="100dp" />
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,17 +22,25 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="God Of War"/>
+            tools:text="God Of War"
+            android:textSize="22sp"
+            android:textStyle="bold|italic"
+            android:id="@+id/tvTitulo"/>
 
         <TextView
+            android:textColor="#AAA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Lançamento: 2018"/>
+            tools:text="Lançamento: 2018"
+            android:id="@+id/tvLancamento"/>
 
         <TextView
+            android:ellipsize="end"
+            android:maxLines="3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="God of War descrição....."/>
+            tools:text="@string/descricao_god_of_war"
+            android:id="@+id/tvDescricao"/>
     </LinearLayout>
 </LinearLayout>
 
